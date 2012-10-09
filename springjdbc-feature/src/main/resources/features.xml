@@ -1,0 +1,15 @@
+<features>
+  <feature name="springjdbc_test" version="1.0">    
+    <bundle>mvn:org.apache.commons/com.springsource.org.apache.commons.logging/1.1.1</bundle>
+    <bundle>mvn:org.springframework/spring-core/3.1.1.RELEASE</bundle>
+    <bundle>mvn:org.springframework/spring-asm/3.1.1.RELEASE</bundle>
+    <bundle>mvn:org.springframework/spring-beans/3.1.1.RELEASE</bundle>
+    <bundle>mvn:org.springframework/spring-context/3.1.1.RELEASE</bundle>
+    <bundle>mvn:org.springframework/spring-tx/3.1.1.RELEASE</bundle>
+    <bundle>mvn:org.springframework/spring-jdbc/3.1.1.RELEASE</bundle>
+    
+    <bundle>mvn:aniketos/mysql-springjdbc-fragment/1.0.0</bundle>
+    <bundle>mvn:com.mysql.jdbc/com.springsource.com.mysql.jdbc/5.1.6</bundle>    
+    <bundle>mvn:aniketos/springjdbc-test-impl/1.0.0</bundle>    
+  </feature>
+</features>

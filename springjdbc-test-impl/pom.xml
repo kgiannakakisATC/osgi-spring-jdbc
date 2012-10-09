@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>aniketos</groupId>
+    <artifactId>springjdbc-test-impl</artifactId>
+    <packaging>bundle</packaging>
+    <version>1.0.0</version>
+    <name>springjdbc-test</name>
+    <url>http://maven.apache.org</url>
+  
+    <properties>
+        <spring.version>3.1.1.RELEASE</spring.version>
+        
+		<bundle.require.bundle>org.springframework.jdbc</bundle.require.bundle>
+		<bundle.import.package>
+ javax.sql,
+ org.springframework.core;version="[2.5.6,3.1.2)",
+ org.springframework.jdbc;version="[2.5.6,3.1.2)",
+ org.springframework.transaction;version="[2.5.6,3.1.2)"        
+		</bundle.import.package>
+		<bundle.export.package></bundle.export.package>        
+    </properties>
+  
+    <build>    
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Activator>gr.atc.aniketos.springjdbc.MainActivator</Bundle-Activator>
+						<Bundle-Name>${project.artifactId}</Bundle-Name>
+						<Bundle-Description>A bundle that demonstrates the use of SPRING JDBC in an OSGi environment</Bundle-Description>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Require-Bundle>${bundle.require.bundle}</Require-Bundle>
+						<Import-Package>${bundle.import.package}</Import-Package>
+						<Export-Package>${bundle.export.package}</Export-Package>
+                        <DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>                
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>            
+        </plugins>
+    </build>
+  
+    <dependencies>        
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.3.0</version>
+        </dependency>    
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>        
+    </dependencies>
+  
+</project>
